@@ -241,31 +241,6 @@ function App() {
               </div>
             </div>
 
-            <div className="location-detail">
-            <BriefcaseBusiness size={18} />
-            <div>
-              <span>For employers</span>
-              <a href="#contact-form">
-                Share your workforce needs <ArrowUpRight size={15} />
-              </a>
-            </div>
-          </div>
-
-          <div className="location-detail">
-            <MapPin size={18} />
-            <div>
-              <span>Location</span>
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=QQWH%2B353%2C%20Limuru%20Rd%2C%20Nairobi"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Kenya · QQWH+353, Limuru Rd, Nairobi
-                <ArrowUpRight size={15} />
-              </a>
-            </div>
-          </div>
-
           <div className="location-detail">
             <Mail size={18} />
             <div>
