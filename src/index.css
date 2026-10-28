@@ -43,7 +43,7 @@ h1 em, h2 em { background: var(--brand-gold-gradient); background-clip: text; co
 .hero-image-wrap { height: 475px; overflow: hidden; position: relative; }
 .hero-image-wrap:after { background: linear-gradient(180deg, rgba(13,13,13,.02), rgba(13,13,13,.3)); content: ''; inset: 0; position: absolute; }
 .hero-image-wrap img { height: 100%; object-fit: cover; width: 100%; }
-.gold-stamp { align-items: center; background: var(--brand-gold-gradient); bottom: -25px; color: var(--brand-charcoal); display: flex; flex-direction: column; font-size: 11px; gap: 8px; justify-content: center; letter-spacing: .08em; line-height: 1.4; padding: 22px; position: absolute; right: -24px; text-align: center; text-transform: uppercase; width: 118px; z-index: 1; }
+.gold-stamp { align-items: center; background: var(--brand-gold-gradient); bottom: -25px; color: var(--brand-charcoal); display: flex; flex-direction: column; font-size: 11px; gap: 8px; justify-content: center; letter-spacing: .08em; line-height: 1.4; padding: 22px; position: absolute; right: -15px; text-align: center; text-transform: uppercase; width: 118px; z-index: 1; }
 .hero-note { align-items: flex-start; border-left: 1px solid #d0b15c; display: flex; gap: 14px; margin: 45px 0 0 40px; padding-left: 14px; }
 .hero-note span { color: #6e5520; font-size: 10px; }
 .hero-note p { font-family: var(--font-heading); font-size: 16px; line-height: 1.2; margin: 0; }
