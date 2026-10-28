@@ -14,7 +14,7 @@ import {
   Users,
   X,
 } from 'lucide-react';
-import { supabase } from '@/lib/supabase';
+import { getSupabaseClient } from '@/lib/supabase';
 
 const heroImage = 'https://images.pexels.com/photos/1181738/pexels-photo-1181738.jpeg?auto=compress&cs=tinysrgb&h=650&w=940';
 const teamImage = 'https://images.pexels.com/photos/5439162/pexels-photo-5439162.jpeg?auto=compress&cs=tinysrgb&h=650&w=940';
@@ -66,24 +66,32 @@ function App() {
     setSubmitting(true);
     setError('');
 
-    const form = new FormData(event.currentTarget);
-    const { error: insertError } = await supabase.from('contact_enquiries').insert({
-      name: form.get('name'),
-      email: form.get('email'),
-      phone: form.get('phone'),
-      enquiry_type: enquiryType,
-      message: form.get('message'),
-    });
+    const formElement = event.currentTarget;
+    const form = new FormData(formElement);
 
-    if (insertError) {
+    try {
+      const { error: insertError } = await getSupabaseClient().from('contact_enquiries').insert({
+        name: form.get('name')?.toString() ?? '',
+        email: form.get('email')?.toString() ?? '',
+        phone: form.get('phone')?.toString() || null,
+        enquiry_type: enquiryType,
+        message: form.get('message')?.toString() ?? '',
+      });
+
+      if (insertError) {
+        console.error('Failed to submit contact enquiry:', insertError);
+        setError('We could not send your enquiry just now. Please try again.');
+        return;
+      }
+
+      setSubmitted(true);
+      formElement.reset();
+    } catch (submissionError) {
+      console.error('Failed to submit contact enquiry:', submissionError);
       setError('We could not send your enquiry just now. Please try again.');
+    } finally {
       setSubmitting(false);
-      return;
     }
-
-    setSubmitted(true);
-    setSubmitting(false);
-    event.currentTarget.reset();
   };
 
   return (
