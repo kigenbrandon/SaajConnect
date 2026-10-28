@@ -48,8 +48,15 @@ const steps = [
 
 type EnquiryType = 'Employer' | 'Candidate' | 'General enquiry';
 
-function BrandMark({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
-  return <img className={`brand-logo ${variant}`} src={variant === 'dark' ? '/assets/images/DARKMODE.jpeg' : '/assets/images/LIGHTMODE.jpeg'} alt="Saaj Connect LTD" />;
+function BrandMark({ variant = 'gold' }: { variant?: 'gold' | 'charcoal' }) {
+  const icon = variant === 'gold' ? 'saaj-icon-gold.png' : 'saaj-icon-charcoal.png';
+
+  return (
+    <span className={`brand-mark ${variant}`}>
+      <img className="brand-icon" src={`/assets/images/${icon}`} alt="" />
+      <span className="brand-wordmark">SAAJ<small>CONNECT LTD</small></span>
+    </span>
+  );
 }
 
 function App() {
@@ -98,7 +105,7 @@ function App() {
     <div className="site-shell">
       <header className="site-header">
         <a className="brand" href="#top" onClick={closeMenu} aria-label="Saaj Connect LTD home">
-          <BrandMark variant="dark" />
+          <BrandMark variant="gold" />
         </a>
         <button className="menu-toggle" type="button" onClick={() => setMenuOpen((open) => !open)} aria-label="Toggle navigation">
           {menuOpen ? <X size={21} /> : <Menu size={21} />}
@@ -166,12 +173,12 @@ function App() {
         </section>
 
         <section className="contact section-pad" id="contact">
-          <div className="contact-copy"><div className="section-label">06 <span>Start a conversation</span></div><h2>Let’s create<br /><em>what’s next.</em></h2><p>Tell us a little about what you are looking for. We will be in touch with a considered next step.</p><div className="contact-detail"><span>Ready to take the next step?</span><a href="#contact-form">Use our enquiry form <ArrowUpRight size={15} /></a></div><div className="location-detail"><MapPin size={18} /><div><span>Visit our office</span><a href="https://www.google.com/maps/search/?api=1&query=QQWH%2B353%2C%20Limuru%20Rd%2C%20Nairobi" target="_blank" rel="noreferrer">QQWH+353, Limuru Rd<br />Nairobi, Kenya <ArrowUpRight size={15} /></a></div></div></div>
+          <div className="contact-copy"><div className="section-label">06 <span>Start a conversation</span></div><h2>Let’s create<br /><em>what’s next.</em></h2><p>Tell us a little about what you are looking for. We will be in touch with a considered next step.</p><div className="contact-detail"><span>Ready to take the next step?</span><a href="#contact-form">Use our enquiry form <ArrowUpRight size={15} /></a></div><div className="location-detail"><MapPin size={18} /><div><span>Visit our office</span><a href="https://www.google.com/maps/search/?api=1&query=QQWH%2B353%2C%20Limuru%20Rd%2C%20Nairobi" target="_blank" rel="noreferrer">QQWH+353, Limuru Rd<br />Nairobi, Kenya <ArrowUpRight size={15} /></a></div></div><div className="location-map"><iframe title="Map showing Saaj Connect LTD's office on Limuru Road, Nairobi" src="https://www.google.com/maps?q=QQWH%2B353%2C%20Limuru%20Rd%2C%20Nairobi&output=embed" loading="lazy" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen /></div></div>
           <div className="form-card" id="contact-form">{submitted ? <div className="success-state"><div className="success-icon"><Check size={26} /></div><h3>Thank you for reaching out.</h3><p>Your enquiry is with our team. We will be in touch soon.</p><button className="button button-outline" type="button" onClick={() => setSubmitted(false)}>Send another enquiry</button></div> : <form onSubmit={handleSubmit}><div className="form-type"><span>I am looking for</span><div className="type-options">{(['Employer', 'Candidate', 'General enquiry'] as EnquiryType[]).map((type) => <button className={enquiryType === type ? 'type-option active' : 'type-option'} key={type} type="button" onClick={() => setEnquiryType(type)}>{type}</button>)}</div></div><label>Name<input required name="name" type="text" placeholder="Your full name" /></label><div className="form-row"><label>Email<input required name="email" type="email" placeholder="you@example.com" /></label><label>Phone <span>(optional)</span><input name="phone" type="tel" placeholder="+44 ..." /></label></div><label>How can we help?<textarea required name="message" rows={4} placeholder="Tell us a little about your goals..." /></label>{error && <p className="form-error">{error}</p>}<button className="button button-dark form-submit" disabled={submitting} type="submit">{submitting ? 'Sending...' : 'Send enquiry'} <ArrowRight size={17} /></button></form>}</div>
         </section>
       </main>
 
-      <footer className="site-footer"><a className="brand footer-brand" href="#top"><BrandMark variant="light" /></a><p>Human resources, reconnected.</p><span>© {new Date().getFullYear()} Saaj Connect LTD</span></footer>
+      <footer className="site-footer"><a className="brand footer-brand" href="#top" aria-label="Saaj Connect LTD home"><BrandMark variant="charcoal" /></a><p>Human resources, reconnected.</p><span>© {new Date().getFullYear()} Saaj Connect LTD</span></footer>
     </div>
   );
 }
