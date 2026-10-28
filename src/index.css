@@ -117,6 +117,34 @@ h2 { font-size: clamp(39px, 5vw, 62px); }
 .contact-copy > p { color: #686864; font-size: 14px; line-height: 1.8; max-width: 320px; }
 .contact-detail { border-left: 1px solid #d2b24e; display: flex; flex-direction: column; gap: 9px; margin-top: 48px; padding-left: 16px; }
 .contact-detail span { color: #777773; font-size: 11px; }
+.contact-detail,
+.location-detail,
+.contact-email {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.contact-detail > svg,
+.location-detail > svg,
+.contact-email > svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.contact-detail > div,
+.location-detail > div,
+.contact-email > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-detail span,
+.location-detail span,
+.contact-email span {
+  display: block;
+}
 .contact-detail a { align-items: center; display: flex; font-family: var(--font-heading); font-size: 19px; gap: 6px; }
 .location-detail { align-items: flex-start; border-left: 1px solid #d2b24e; display: flex; gap: 14px; margin-top: 27px; padding-left: 16px; }
 .location-detail > svg { color: #6e5520; flex: 0 0 auto; margin-top: 2px; }

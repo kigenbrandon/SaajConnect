@@ -13,6 +13,8 @@ import {
   Sparkles,
   Users,
   X,
+  Mail,
+  Phone,
 } from 'lucide-react';
 import { getSupabaseClient } from '@/lib/supabase';
 
@@ -198,8 +200,102 @@ function App() {
         </section>
 
         <section className="contact section-pad" id="contact">
-          <div className="contact-copy"><div className="section-label">06 <span>Partner with us</span></div><h2>Let’s build<br /><em>something lasting.</em></h2><p>We welcome international employers, recruitment agencies, workforce partners, and organisations seeking access to Kenyan talent.</p><div className="contact-detail"><span>For employers</span><a href="#contact-form">Share your workforce needs <ArrowUpRight size={15} /></a></div><div className="location-detail"><MapPin size={18} /><div><span>Location</span><a href="https://www.google.com/maps/search/?api=1&query=QQWH%2B353%2C%20Limuru%20Rd%2C%20Nairobi" target="_blank" rel="noreferrer">Kenya · QQWH+353, Limuru Rd, Nairobi <ArrowUpRight size={15} /></a></div></div><div className="contact-email"><span>Email</span><a href="mailto:saajconnectltd@gmail.com">saajconnectltd@gmail.com <ArrowUpRight size={15} /></a></div><div className="contact-email"><span>Telephone</span><a href="tel:+254184280029">+254 184 280 029 <ArrowUpRight size={15} /></a></div><div className="location-map"><iframe title="Map showing Saaj Connect LTD's location on Limuru Road, Nairobi" src="https://www.google.com/maps?q=QQWH%2B353%2C%20Limuru%20Rd%2C%20Nairobi&output=embed" loading="lazy" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen /></div></div>
-          <div className="form-card" id="contact-form">{submitted ? <div className="success-state"><div className="success-icon"><Check size={26} /></div><h3>Thank you for reaching out.</h3><p>Your enquiry is with our team. We will be in touch soon.</p><button className="button button-outline" type="button" onClick={() => setSubmitted(false)}>Send another enquiry</button></div> : <form onSubmit={handleSubmit}><div className="form-type"><span>I am looking for</span><div className="type-options">{(['Employer', 'Candidate', 'General enquiry'] as EnquiryType[]).map((type) => <button className={enquiryType === type ? 'type-option active' : 'type-option'} key={type} type="button" onClick={() => setEnquiryType(type)}>{type}</button>)}</div></div><label>Name<input required name="name" type="text" placeholder="Your full name" /></label><div className="form-row"><label>Email<input required name="email" type="email" placeholder="you@example.com" /></label><label>Phone <span>(optional)</span><input name="phone" type="tel" placeholder="+44 ..." /></label></div><label>How can we help?<textarea required name="message" rows={4} placeholder="Tell us a little about your goals..." /></label>{error && <p className="form-error">{error}</p>}<button className="button button-dark form-submit" disabled={submitting} type="submit">{submitting ? 'Sending...' : 'Send enquiry'} <ArrowRight size={17} /></button></form>}</div>
+          <div className="contact-copy">
+            <div className="section-label">
+              06 <span>Partner with us</span>
+            </div>
+
+            <h2>
+              Let’s build
+              <br />
+              <em>something lasting.</em>
+            </h2>
+
+            <p>
+              We welcome international employers, recruitment agencies, workforce
+              partners, and organisations seeking access to Kenyan talent.
+            </p>
+
+            <div className="contact-detail">
+              <BriefcaseBusiness size={18} />
+              <div>
+                <span>For employers</span>
+                <a href="#contact-form">
+                  Share your workforce needs <ArrowUpRight size={15} />
+                </a>
+              </div>
+            </div>
+
+            <div className="location-detail">
+              <MapPin size={18} />
+              <div>
+                <span>Location</span>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=QQWH%2B353%2C%20Limuru%20Rd%2C%20Nairobi"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Kenya · QQWH+353, Limuru Rd, Nairobi
+                  <ArrowUpRight size={15} />
+                </a>
+              </div>
+            </div>
+
+            <div className="location-detail">
+            <BriefcaseBusiness size={18} />
+            <div>
+              <span>For employers</span>
+              <a href="#contact-form">
+                Share your workforce needs <ArrowUpRight size={15} />
+              </a>
+            </div>
+          </div>
+
+          <div className="location-detail">
+            <MapPin size={18} />
+            <div>
+              <span>Location</span>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=QQWH%2B353%2C%20Limuru%20Rd%2C%20Nairobi"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Kenya · QQWH+353, Limuru Rd, Nairobi
+                <ArrowUpRight size={15} />
+              </a>
+            </div>
+          </div>
+
+          <div className="location-detail">
+            <Mail size={18} />
+            <div>
+              <span>Email</span>
+              <a href="mailto:saajconnectltd@gmail.com">
+                saajconnectltd@gmail.com <ArrowUpRight size={15} />
+              </a>
+            </div>
+          </div>
+
+          <div className="location-detail">
+            <Phone size={18} />
+            <div>
+              <span>Telephone</span>
+              <a href="tel:+254184280029">
+                +254 184 280 029 <ArrowUpRight size={15} />
+              </a>
+            </div>
+          </div>
+
+            <div className="location-map">
+              <iframe
+                title="Map showing Saaj Connect LTD's location on Limuru Road, Nairobi"
+                src="https://www.google.com/maps?q=QQWH%2B353%2C%20Limuru%20Rd%2C%20Nairobi&output=embed"
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            </div>
+          </div>          <div className="form-card" id="contact-form">{submitted ? <div className="success-state"><div className="success-icon"><Check size={26} /></div><h3>Thank you for reaching out.</h3><p>Your enquiry is with our team. We will be in touch soon.</p><button className="button button-outline" type="button" onClick={() => setSubmitted(false)}>Send another enquiry</button></div> : <form onSubmit={handleSubmit}><div className="form-type"><span>I am looking for</span><div className="type-options">{(['Employer', 'Candidate', 'General enquiry'] as EnquiryType[]).map((type) => <button className={enquiryType === type ? 'type-option active' : 'type-option'} key={type} type="button" onClick={() => setEnquiryType(type)}>{type}</button>)}</div></div><label>Name<input required name="name" type="text" placeholder="Your full name" /></label><div className="form-row"><label>Email<input required name="email" type="email" placeholder="you@example.com" /></label><label>Phone <span>(optional)</span><input name="phone" type="tel" placeholder="+44 ..." /></label></div><label>How can we help?<textarea required name="message" rows={4} placeholder="Tell us a little about your goals..." /></label>{error && <p className="form-error">{error}</p>}<button className="button button-dark form-submit" disabled={submitting} type="submit">{submitting ? 'Sending...' : 'Send enquiry'} <ArrowRight size={17} /></button></form>}</div>
         </section>
       </main>
 
