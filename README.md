@@ -1,225 +1,129 @@
-# SAAJ Connect Ltd Website
+<div align="center">
+  <img src="public/assets/images/saaj-icon-gold.png" alt="SAAJ Connect" width="72" />
+  <h1>SAAJ Connect Ltd</h1>
+  <p><strong>Connecting Kenyan skills to the world.</strong></p>
+  <p>A people-first recruitment and human capital website connecting Kenyan talent with international opportunities.</p>
+</div>
 
-A polished marketing website for SAAJ Connect Ltd, a Kenyan recruitment and human capital company connecting local talent with international opportunities. The site is built with React, Vite, TypeScript, and Tailwind CSS, and includes a public contact form that stores enquiries in Supabase.
+---
 
-## Project overview
+## At a glance
 
-SAAJ Connect exists to help employers access reliable Kenyan talent and help job seekers connect with international work opportunities. The website explains the company’s value proposition, recruitment process, leadership, sectors served, and how new business or candidate enquiries can be made.
+| | |
+|---|---|
+| **Built with** | React · TypeScript · Vite · Tailwind CSS |
+| **Enquiries** | Supabase |
+| **Website** | Responsive, single-page company site |
 
-Key business goals of the site:
-- Present the company as a credible recruitment partner
-- Communicate the company’s mission, values, and leadership
-- Describe recruitment and placement services in a clear way
-- Support employer and candidate enquiries through a contact form
-- Provide downloadable company information assets
+## Contents
 
-## Tech stack
+- [About the project](#about-the-project)
+- [What’s included](#whats-included)
+- [Get started](#get-started)
+- [Supabase setup](#supabase-setup)
+- [Project structure](#project-structure)
+- [Available commands](#available-commands)
+- [Deployment](#deployment)
+- [Brand assets](#brand-assets)
 
-- React 18
-- TypeScript
-- Vite
-- Tailwind CSS
-- Supabase JavaScript client
-- Lucide React icons
+## About the project
 
-## Key features
+SAAJ Connect Ltd is a Kenyan recruitment and human capital solutions company. This website introduces the company, its services and recruitment approach, and gives employers and candidates a direct way to get in touch.
 
-- Responsive one-page marketing layout
-- Hero section with strong brand positioning
-- Company overview and mission/vision messaging
-- Leadership and director profile area
-- Service cards covering recruitment and placement activities
-- Recruitment workflow/process timeline
-- Sector coverage for relevant industries
-- Contact form with enquiry type selection
-- Downloadable company profile PDF
-- Embedded Google Maps location block
+The site is built as a responsive React application with Vite. Its public enquiry form stores submissions in Supabase; the company profile is available as a downloadable PDF.
 
-## Website structure and content
+## What’s included
 
-The main marketing page is implemented in [src/App.tsx](./src/App.tsx). It contains the main sections:
+- **Company story** — overview, vision, mission, values, and leadership
+- **Recruitment services** — international placement, employer partnerships, talent sourcing, and candidate support
+- **Recruitment approach** — a six-step view from understanding a role to candidate follow-up
+- **Enquiry form** — employer, candidate, and general enquiry types, submitted to Supabase
+- **Company profile** — downloadable PDF in the site’s public assets
+- **Responsive layout** — navigation and content designed for desktop and mobile
 
-1. Hero and headline messaging
-2. Trust/brand bar
-3. About section with vision and mission
-4. Director profile and company philosophy
-5. Services overview
-6. Recruitment process steps
-7. Contact and enquiry form
-8. Footer and profile download link
+## Get started
 
-The styling and layout system lives in [src/index.css](./src/index.css). This file defines the brand system, typography, spacing, card styles, buttons, grid layouts, and responsive rules.
+### Requirements
 
-## Folder structure
+Install a current [Node.js](https://nodejs.org/) release with npm.
 
-```text
-.
-├── public/
-│   ├── assets/
-│   │   ├── SAAJ_Connect_Company_Profile_2026.pdf
-│   │   └── images/
-│   │       ├── DARKMODE.jpeg
-│   │       ├── LIGHTMODE.jpeg
-│   │       ├── director.png
-│   │       ├── saaj-icon-black.png
-│   │       ├── saaj-icon-charcoal.png
-│   │       └── saaj-icon-gold.png
-├── src/
-│   ├── App.tsx
-│   ├── index.css
-│   ├── main.tsx
-│   └── lib/
-│       └── supabase.ts
-├── supabase/
-│   └── migrations/
-│       └── 20261028072137_create_contact_enquiries.sql
-├── eslint.config.js
-├── index.html
-├── package.json
-├── postcss.config.js
-├── tailwind.config.js
-├── tsconfig.app.json
-├── tsconfig.json
-├── tsconfig.node.json
-├── vite.config.ts
-├── README.md
-└── .env.local (not committed)
-```
-
-## Local setup
-
-### 1. Install dependencies
+### Install dependencies
 
 ```bash
 npm install
 ```
 
-### 2. Configure environment variables
+### Configure the environment
 
-Create a `.env.local` file in the project root with your Supabase credentials:
+Create a `.env.local` file in the project root:
 
 ```env
 VITE_SUPABASE_URL=https://your-project.supabase.co
-VITE_SUPABASE_ANON_KEY=your-anon-key
+VITE_SUPABASE_ANON_KEY=your-supabase-anon-key
 ```
 
-These variables are required because the site’s public contact form submits leads to the `contact_enquiries` table in Supabase.
+Use the project URL and anon key from your Supabase project settings. These values are used by the browser-side contact form; never put a Supabase service-role key in the frontend.
 
-### 3. Run the app locally
+### Start the development server
 
 ```bash
 npm run dev
 ```
 
-The development server starts in Vite and typically runs on a local port such as `http://localhost:5173`.
+Open the local URL printed by Vite, usually `http://localhost:5173`.
 
-### 4. Common commands
+## Supabase setup
 
-```bash
-npm run build
-npm run lint
-npm run typecheck
-npm run preview
+The contact form inserts submissions into `public.contact_enquiries`. Apply the migration in [`supabase/migrations`](supabase/migrations) to your Supabase project before using the form.
+
+The migration enables row-level security and permits anonymous and authenticated visitors to **insert** enquiries. It does not grant browser access to read, update, or delete submissions. Manage enquiries through a trusted, protected workflow.
+
+The table stores a name, email, optional phone number, enquiry type, message, and submission timestamp.
+
+## Project structure
+
+```text
+.
+├── public/
+│   └── assets/
+│       ├── images/                 # Logo, leadership, and site imagery
+│       └── SAAJ_Connect_Company_Profile_2026.pdf
+├── src/
+│   ├── lib/
+│   │   └── supabase.ts             # Typed Supabase client
+│   ├── App.tsx                     # Landing page and enquiry form
+│   ├── index.css                   # Global styles and design system
+│   └── main.tsx                    # Application entry point
+├── supabase/
+│   └── migrations/                 # Database schema and policies
+├── index.html
+├── package.json
+└── vite.config.ts
 ```
 
-## Supabase integration
+## Available commands
 
-The website uses a single public table for contact submissions:
-
-- `public.contact_enquiries`
-
-The schema and security policy are defined in [supabase/migrations/20261028072137_create_contact_enquiries.sql](./supabase/migrations/20261028072137_create_contact_enquiries.sql).
-
-The table stores:
-- `id` - generated UUID
-- `name` - full name
-- `email` - email address
-- `phone` - optional contact number
-- `enquiry_type` - employer, candidate, or general enquiry
-- `message` - inquiry description
-- `created_at` - submission timestamp
-
-The client is created in [src/lib/supabase.ts](./src/lib/supabase.ts). The `getSupabaseClient()` function reads the `.env.local` variables and creates a reusable Supabase client instance.
-
-## Contact form behaviour
-
-The form in [src/App.tsx](./src/App.tsx) features:
-- enquiry type tabs for Employer, Candidate, and General enquiry
-- required validation for name, email, and message
-- automatic insert into `contact_enquiries`
-- success and error states for users
-
-If the submission fails, the user sees a friendly message and the error is logged to the browser console.
-
-## Branding and assets
-
-Brand assets are stored in the public folder, especially under [public/assets/images](./public/assets/images):
-
-- `saaj-icon-gold.png`
-- `saaj-icon-charcoal.png`
-- `director.png`
-- `DARKMODE.jpeg`
-- `LIGHTMODE.jpeg`
-
-The downloadable company profile is available at:
-
-- [public/assets/SAAJ_Connect_Company_Profile_2026.pdf](./public/assets/SAAJ_Connect_Company_Profile_2026.pdf)
-
-## Customising the website
-
-### Updating business content
-
-The main content is stored in arrays and text blocks inside [src/App.tsx](./src/App.tsx). If you need to change:
-- services
-- recruitment steps
-- sector names
-- values
-- leadership text
-- contact details
-
-edit the relevant constants near the top of the file before the `App` component definition.
-
-### Updating styles
-
-The app uses a custom design system in [src/index.css](./src/index.css). Update the following theme variables to refresh the brand look:
-
-```css
-:root {
-  --brand-white: #fff;
-  --brand-charcoal: #3c3c3b;
-  --brand-gold-gradient: linear-gradient(...);
-}
-```
-
-### Updating the brand or images
-
-Replace files in [public/assets/images](./public/assets/images) and ensure the image references in [src/App.tsx](./src/App.tsx) still match the file names.
+| Command | Description |
+|---|---|
+| `npm run dev` | Start the local development server |
+| `npm run build` | Create a production build in `dist/` |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint` | Run ESLint |
+| `npm run typecheck` | Check application TypeScript types |
 
 ## Deployment
 
-This project is designed for deployment as a static frontend application. Recommended hosting options include:
-- Vercel
-- Netlify
-- Cloudflare Pages
-- any static hosting provider compatible with Vite
-
-Before deployment, set the required environment variables in the hosting platform:
-- `VITE_SUPABASE_URL`
-- `VITE_SUPABASE_ANON_KEY`
-
-Also ensure the production build is generated with:
+Build the site for production:
 
 ```bash
 npm run build
 ```
 
-## Notes for maintainers
+Deploy the generated `dist/` directory to a static hosting provider such as Vercel, Netlify, or Cloudflare Pages. Configure `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` in the hosting provider’s environment settings, and ensure the Supabase migration has been applied.
 
-- The website is intentionally structured as a single landing page for clarity and fast conversion.
-- The current contact form is public-facing and writes into the database without authentication.
-- If the business later grows, it may be useful to add staff-only dashboards, enquiry review workflows, or protected admin access.
-- Keep the PDF profile and public brand assets updated whenever the company profile changes.
+## Brand assets
 
-## Summary
+- **Company profile:** [`public/assets/SAAJ_Connect_Company_Profile_2026.pdf`](public/assets/SAAJ_Connect_Company_Profile_2026.pdf)
+- **Images and logos:** [`public/assets/images`](public/assets/images)
 
-This project is a modern, responsive company website for SAAJ Connect Ltd. It balances clean brand storytelling with a practical lead-generation and enquiry system, making it suitable for both marketing and business intake.
+To update page content, edit the content and data in [`src/App.tsx`](src/App.tsx). To adjust the visual system, update [`src/index.css`](src/index.css).
