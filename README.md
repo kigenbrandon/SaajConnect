@@ -1,6 +1,6 @@
 <div align="center">
-  <img src="public/assets/images/saaj-icon-gold.png" alt="SAAJ Connect" width="72" />
-  <h1>SAAJ Connect Ltd</h1>
+  <img src="public/assets/images/saaj-icon-gold.png" alt="SAAJ RECRUITMENT LIMITED" width="72" />
+  <h1>SAAJ RECRUITMENT LIMITED</h1>
   <p><strong>Connecting Kenyan skills to the world.</strong></p>
   <p>A people-first recruitment and human capital website connecting Kenyan talent with international opportunities.</p>
 </div>
@@ -28,7 +28,7 @@
 
 ## About the project
 
-SAAJ Connect Ltd is a Kenyan recruitment and human capital solutions company. This website introduces the company, its services and recruitment approach, and gives employers and candidates a direct way to get in touch.
+SAAJ RECRUITMENT LIMITED is a Kenyan recruitment and human capital solutions company. This website introduces the company, its services and recruitment approach, and gives employers and candidates a direct way to get in touch.
 
 The site is built as a responsive React application with Vite. Its public enquiry form stores submissions in Supabase; the company profile is available as a downloadable PDF.
 

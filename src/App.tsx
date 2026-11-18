@@ -63,8 +63,32 @@ const steps = [
   ['06', 'Deployment & follow-up', 'Candidates travel to the employer, and we keep communication open on both sides.'],
 ];
 
-const sectors = ['Hospitality', 'Domestic services', 'Education', 'Transport', 'Logistics', 'Warehousing', 'Construction', 'Cleaning'];
+const sectors = ['Hospitality', 'Domestic services', 'Education', 'Transport', 'Logistics', 'Warehousing', 'Construction', 'Cleaning', 'Sales & marketing', 'Security', 'Healthcare & caregiving'];
 const values = ['Integrity', 'Professionalism', 'Partnership', 'Opportunity', 'Accountability'];
+const hrServices = [
+  'Human resource planning',
+  'Recruitment and selection',
+  'Onboarding and employee integration',
+  'Employee records and HR administration',
+  'Compensation and benefits administration',
+  'Performance management',
+  'Training and development',
+  'Employee relations and engagement',
+  'Labour laws and regulatory compliance',
+  'Leave and absence management',
+  'Employee welfare, health and safety',
+  'Talent management and career development',
+  'Disciplinary and grievance management',
+  'Separation and exit management',
+  'HR strategy and reporting',
+  'HR policy development',
+];
+const targetMarkets = [
+  ['Local market', 'Kenya', 'Recruitment, placement and full HR support for Kenyan businesses and organisations across all sectors.'],
+  ['International', 'Saudi Arabia', 'Domestic services, transport, logistics and other employer-driven workforce opportunities.'],
+  ['International', 'Qatar', 'Education, cleaning, hospitality and other employment opportunities.'],
+  ['International', 'United Arab Emirates', 'Construction, warehousing, cleaning and other workforce opportunities.'],
+];
 
 type EnquiryType = 'Employer' | 'Candidate' | 'General enquiry';
 
@@ -74,7 +98,7 @@ function BrandMark({ variant = 'gold' }: { variant?: 'gold' | 'charcoal' }) {
   return (
     <span className={`brand-mark ${variant}`}>
       <img className="brand-icon" src={`/assets/images/${icon}`} alt="" />
-      <span className="brand-wordmark">SAAJ<small>CONNECT LTD</small></span>
+      <span className="brand-wordmark">SAAJ<small>RECRUITMENT LIMITED</small></span>
     </span>
   );
 }
@@ -124,7 +148,7 @@ function App() {
   return (
     <div className="site-shell">
       <header className="site-header">
-        <a className="brand" href="#top" onClick={closeMenu} aria-label="Saaj Connect LTD home">
+        <a className="brand" href="#top" onClick={closeMenu} aria-label="SAAJ RECRUITMENT LIMITED home">
           <BrandMark variant="gold" />
         </a>
         <button className="menu-toggle" type="button" onClick={() => setMenuOpen((open) => !open)} aria-label="Toggle navigation">
@@ -133,6 +157,7 @@ function App() {
         <nav className={menuOpen ? 'main-nav is-open' : 'main-nav'} aria-label="Main navigation">
           <a href="#about" onClick={closeMenu}>About us</a>
           <a href="#services" onClick={closeMenu}>What we do</a>
+          <a href="#hr-solutions" onClick={closeMenu}>HR solutions</a>
           <a href="#leadership" onClick={closeMenu}>Leadership</a>
           <a href="#process" onClick={closeMenu}>Our approach</a>
           <a className="nav-cta" href="#contact" onClick={closeMenu}>Start a conversation <ArrowRight size={15} /></a>
@@ -144,9 +169,9 @@ function App() {
           <div className="hero-copy">
             <p className="eyebrow"><span /> International recruitment & human capital solutions</p>
             <h1>Connecting Kenyan skills<br /><em>to the world.</em></h1>
-            <p className="hero-intro">SAAJ Connect Ltd is a Kenyan recruitment and human capital solutions company connecting Kenyan talent with employment opportunities across international markets.</p>
+            <p className="hero-intro">SAAJ RECRUITMENT LIMITED is a Kenyan recruitment and human capital solutions company connecting Kenyan talent with employment opportunities across international markets.</p>
             <div className="hero-actions">
-              <a className="button button-dark" href="#contact">Partner with SAAJ Connect <ArrowRight size={17} /></a>
+              <a className="button button-dark" href="#contact">Partner with SAAJ RECRUITMENT <ArrowRight size={17} /></a>
               <a className="text-link" href="/assets/SAAJ_Connect_Company_Profile_2026.pdf" download>Download company profile <ArrowDownToLine size={16} /></a>
             </div>
           </div>
@@ -168,7 +193,7 @@ function App() {
           <div className="section-label">02 <span>Company overview</span></div>
           <div className="about-grid">
             <h2>Local talent.<br /><em>Global opportunity.</em></h2>
-            <div className="about-copy"><p>SAAJ Connect bridges employers seeking capable, reliable workers and Kenyans looking to develop their careers, improve their livelihoods, and gain international work experience.</p><p>With a strategic focus on Saudi Arabia and the wider Gulf, we build partnerships that expand access to global employment through professionalism, integrity, and effective communication.</p></div>
+            <div className="about-copy"><p>SAAJ RECRUITMENT bridges employers seeking capable, reliable workers and Kenyans looking to develop their careers, improve their livelihoods, and gain international work experience.</p><p>With a strategic focus on Saudi Arabia and the wider Gulf, we build partnerships that expand access to global employment through professionalism, integrity, and effective communication.</p></div>
           </div>
           <div className="purpose-grid">
             <article><span>Our vision</span><p>To become a trusted international recruitment and human capital partner connecting Kenyan talent to meaningful employment worldwide.</p></article>
@@ -181,8 +206,8 @@ function App() {
           <div className="section-label">03 <span>A message from our director</span></div>
           <div className="about-image-grid"><div className="director-profile"><img src="/assets/images/director.png" alt="A team sharing ideas in a bright office" /></div><div className="quote-card"><p>“Talent has no borders — and every great journey begins with the right connection.”</p><span>Sharon · Managing Director</span></div></div>
           <div className="director-grid">
-            <div className="director-profile"><div><p className="director-kicker">Managing Director, SAAJ Connect Ltd</p><h2>Sharon</h2></div></div>
-            <div className="director-copy"><p>SAAJ Connect was founded on a simple conviction: Kenya’s people are among its greatest assets, and with the right opportunity, Kenyan talent can thrive anywhere in the world.</p><p>We take that responsibility seriously through clear terms, honest communication, careful screening, and respect for every candidate and client.</p><a className="text-link" href="mailto:saajconnectltd@gmail.com">Contact our team <ArrowRight size={16} /></a></div>
+            <div className="director-profile"><div><p className="director-kicker">Managing Director, SAAJ RECRUITMENT LIMITED</p><h2>Sharon</h2></div></div>
+            <div className="director-copy"><p>SAAJ RECRUITMENT LIMITED was founded on a simple conviction: Kenya’s people are among its greatest assets, and with the right opportunity, Kenyan talent can thrive anywhere in the world.</p><p>We take that responsibility seriously through clear terms, honest communication, careful screening, and respect for every candidate and client.</p><a className="text-link" href="mailto:saajconnect@gmail.com">Contact our team <ArrowRight size={16} /></a></div>
           </div>
         </section>
 
@@ -194,15 +219,41 @@ function App() {
           <div className="markets-note"><span>Talent from</span><strong>Kenya</strong><ArrowRight size={17} /><span>Initial markets</span><strong>Saudi Arabia · Qatar · United Arab Emirates</strong></div>
         </section>
 
+        <section className="hr-solutions section-pad" id="hr-solutions">
+          <div className="section-label">05 <span>Human resource solutions</span></div>
+          <div className="section-heading-row">
+            <h2>Complete HR,<br /><em>your way.</em></h2>
+            <p>Choose a single service or a complete outsourced HR function. Every package is tailored to your organisation, team size and budget.</p>
+          </div>
+          <div className="hr-grid">
+            {hrServices.map((service, index) => (
+              <article key={service}><span>{String(index + 1).padStart(2, '0')}</span><p>{service}</p></article>
+            ))}
+          </div>
+        </section>
+
+        <section className="markets section-pad" id="markets">
+          <div className="section-label">06 <span>Target markets</span></div>
+          <div className="section-heading-row">
+            <h2>Where we<br /><em>connect.</em></h2>
+            <p>Our market strategy is guided by employer demand, candidate suitability and applicable recruitment and employment regulations.</p>
+          </div>
+          <div className="market-grid">
+            {targetMarkets.map(([scope, market, description]) => (
+              <article key={market}><span>{scope}</span><h3>{market}</h3><p>{description}</p></article>
+            ))}
+          </div>
+        </section>
+
         <section className="process section-pad" id="process">
-          <div className="process-intro"><div className="section-label light">05 <span>Our process</span></div><h2>Responsible<br /><em>talent mobility.</em></h2><p>Each placement is guided by employer demand, candidate suitability, clear communication, and applicable recruitment and employment regulations.</p></div>
+          <div className="process-intro"><div className="section-label light">07 <span>Our process</span></div><h2>Responsible<br /><em>talent mobility.</em></h2><p>Each placement is guided by employer demand, candidate suitability, clear communication, and applicable recruitment and employment regulations.</p></div>
           <div className="steps">{steps.map(([number, title, description]) => <div className="step" key={number}><span className="step-number">{number}</span><div><h3>{title}</h3><p>{description}</p></div></div>)}</div>
         </section>
 
         <section className="contact section-pad" id="contact">
           <div className="contact-copy">
             <div className="section-label">
-              06 <span>Partner with us</span>
+              08 <span>Partner with us</span>
             </div>
 
             <h2>
@@ -231,11 +282,11 @@ function App() {
               <div>
                 <span>Location</span>
                 <a
-                  href="https://www.google.com/maps/search/?api=1&query=QQWH%2B353%2C%20Limuru%20Rd%2C%20Nairobi"
+                  href="https://www.google.com/maps/search/?api=1&query=Ruaka%20Landmark%2C%20Ruaka%2C%20Kenya"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Kenya · QQWH+353, Limuru Rd, Nairobi
+                  Ruaka Landmark · Ruaka, Kenya
                   <ArrowUpRight size={15} />
                 </a>
               </div>
@@ -245,8 +296,8 @@ function App() {
             <Mail size={18} />
             <div>
               <span>Email</span>
-              <a href="mailto:saajconnectltd@gmail.com">
-                saajconnectltd@gmail.com <ArrowUpRight size={15} />
+              <a href="mailto:saajconnect@gmail.com">
+                saajconnect@gmail.com <ArrowUpRight size={15} />
               </a>
             </div>
           </div>
@@ -256,15 +307,15 @@ function App() {
             <div>
               <span>Telephone</span>
               <a href="tel:+254184280029">
-                +254 184 280 029 <ArrowUpRight size={15} />
+                018 4280029 <ArrowUpRight size={15} />
               </a>
             </div>
           </div>
 
             <div className="location-map">
               <iframe
-                title="Map showing Saaj Connect LTD's location on Limuru Road, Nairobi"
-                src="https://www.google.com/maps?q=QQWH%2B353%2C%20Limuru%20Rd%2C%20Nairobi&output=embed"
+                title="Map showing SAAJ RECRUITMENT LIMITED in Ruaka, Kenya"
+                src="https://www.google.com/maps?q=Ruaka%20Landmark%2C%20Ruaka%2C%20Kenya&output=embed"
                 loading="lazy"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
@@ -274,7 +325,7 @@ function App() {
         </section>
       </main>
 
-      <footer className="site-footer"><a className="brand footer-brand" href="#top" aria-label="Saaj Connect LTD home"><BrandMark variant="charcoal" /></a><p>Kenyan talent · Global opportunities · Lasting impact</p><a className="profile-download" href="/assets/SAAJ_Connect_Company_Profile_2026.pdf" download>Download company profile <ArrowDownToLine size={15} /></a><span>© {new Date().getFullYear()} SAAJ Connect Ltd</span></footer>
+      <footer className="site-footer"><a className="brand footer-brand" href="#top" aria-label="SAAJ RECRUITMENT LIMITED home"><BrandMark variant="charcoal" /></a><p>Kenyan talent · Global opportunities · Lasting impact</p><a className="profile-download" href="/assets/SAAJ_Connect_Company_Profile_2026.pdf" download>Download company profile <ArrowDownToLine size={15} /></a><span>© {new Date().getFullYear()} SAAJ RECRUITMENT LIMITED</span></footer>
     </div>
   );
 }
