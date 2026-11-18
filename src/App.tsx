@@ -15,6 +15,8 @@ import {
   X,
   Mail,
   Phone,
+  Instagram,
+  Music2,
 } from 'lucide-react';
 import { getSupabaseClient } from '@/lib/supabase';
 
@@ -160,6 +162,7 @@ function App() {
           <a href="#hr-solutions" onClick={closeMenu}>HR solutions</a>
           <a href="#leadership" onClick={closeMenu}>Leadership</a>
           <a href="#process" onClick={closeMenu}>Our approach</a>
+          <a href="https://saaj-connect-limited-app.vercel.app/careers" target="_blank" rel="noreferrer" onClick={closeMenu}>Careers</a>
           <a className="nav-cta" href="#contact" onClick={closeMenu}>Start a conversation <ArrowRight size={15} /></a>
         </nav>
       </header>
@@ -312,6 +315,21 @@ function App() {
             </div>
           </div>
 
+          <div className="social-links" aria-label="SAAJ RECRUITMENT LIMITED social channels">
+            <a href="https://www.instagram.com/saaj_recruitment_" target="_blank" rel="noreferrer" aria-label="SAAJ Recruitment on Instagram">
+              <Instagram size={17} />
+              @saaj_recruitment_
+            </a>
+            <a href="https://www.tiktok.com/@saaj_recruitment_" target="_blank" rel="noreferrer" aria-label="SAAJ Recruitment on TikTok">
+              <Music2 size={17} />
+              @saaj_recruitment_
+            </a>
+            <a href="https://saaj-connect-limited-app.vercel.app/careers" target="_blank" rel="noreferrer">
+              Careers
+              <ArrowUpRight size={15} />
+            </a>
+          </div>
+
             <div className="location-map">
               <iframe
                 title="Map showing SAAJ RECRUITMENT LIMITED in Ruaka, Kenya"
@@ -325,7 +343,7 @@ function App() {
         </section>
       </main>
 
-      <footer className="site-footer"><a className="brand footer-brand" href="#top" aria-label="SAAJ RECRUITMENT LIMITED home"><BrandMark variant="charcoal" /></a><p>Kenyan talent · Global opportunities · Lasting impact</p><a className="profile-download" href="/assets/SAAJ_Connect_Company_Profile_2026.pdf" download>Download company profile <ArrowDownToLine size={15} /></a><span>© {new Date().getFullYear()} SAAJ RECRUITMENT LIMITED</span></footer>
+      <footer className="site-footer"><a className="brand footer-brand" href="#top" aria-label="SAAJ RECRUITMENT LIMITED home"><BrandMark variant="charcoal" /></a><p>Kenyan talent · Global opportunities · Lasting impact</p><a className="profile-download" href="/assets/SAAJ_Connect_Company_Profile_2026.pdf" download>Download company profile <ArrowDownToLine size={15} /></a><div className="footer-links"><a href="https://www.instagram.com/saaj_recruitment_" target="_blank" rel="noreferrer">Instagram</a><a href="https://www.tiktok.com/@saaj_recruitment_" target="_blank" rel="noreferrer">TikTok</a><a href="https://saaj-connect-limited-app.vercel.app/careers" target="_blank" rel="noreferrer">Careers</a></div><span>© {new Date().getFullYear()} SAAJ RECRUITMENT LIMITED</span></footer>
     </div>
   );
 }

@@ -162,6 +162,9 @@ h2 { font-size: clamp(39px, 5vw, 62px); }
 .location-detail > svg { color: #6e5520; flex: 0 0 auto; margin-top: 2px; }
 .location-detail span { color: #777773; display: block; font-size: 11px; margin-bottom: 8px; }
 .location-detail a { align-items: flex-start; display: flex; font-family: var(--font-heading); font-size: 17px; gap: 6px; line-height: 1.35; }
+.social-links { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-top: 24px; }
+.social-links a { align-items: center; border-bottom: 1px solid #d2b24e; display: inline-flex; font-size: 12px; gap: 7px; padding-bottom: 5px; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 16px; font-size: 11px; }
 .contact-email { border-left: 1px solid #d2b24e; display: flex; flex-direction: column; gap: 8px; margin-top: 20px; padding-left: 16px; }
 .contact-email > span { color: #777773; font-size: 11px; }
 .contact-email a, .profile-download { align-items: center; display: inline-flex; gap: 7px; }
